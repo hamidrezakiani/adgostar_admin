@@ -3,7 +3,7 @@ namespace App\Services\Auth;
 
 use App\Repositories\Eloquent\Auth\LoginRepository;
 use App\Lib\ResponseTemplate;
-use App\Models\Account;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -23,11 +23,11 @@ class LoginService extends ResponseTemplate{
 
     public function login(Request $request)
     {
-        $account = Account::where('phone',$request->phone)->whereHas('admin')->first();
-        if($account && Hash::check($request->password, $account->password))
+        $admin = Admin::where('phone',$request->phone)->first();
+        if($admin && Hash::check($request->password, $admin->password))
         {
-           Auth::login($account);
-           Auth::guard('admin')->login($account->admin);
+           Auth::login($admin);
+           Auth::guard('admin')->login($admin);
            return redirect('/page/dashboard');
         }
         else
