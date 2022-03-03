@@ -47,7 +47,7 @@
           </section>
         </div> <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong><a href="http://github.com/hesammousavi/">ادگستر</a></strong>
+            <strong><a href="https://adgostar.net">ادگستر</a></strong>
         </footer>
 
           <!-- Control Sidebar -->
